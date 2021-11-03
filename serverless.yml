@@ -1,0 +1,51 @@
+service: aws-node-http-api-project
+frameworkVersion: '2'
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+provider:
+  name: aws
+  runtime: nodejs14.x
+  lambdaHashingVersion: '20201221'
+  region: "us-east-2"
+
+
+functions:
+  hello:
+    handler: src/functions/hello.handler
+    events:
+      - httpApi:
+          path: /
+          method: get
+  firstPositiveItem:
+    handler: src/functions/firstPositiveItem/index.handler
+    events:
+      - httpApi:
+          path: /firstPositiveItem
+          method: post
+  sumPositiveItem:
+    handler: src/functions/sumPositiveItem/index.handler
+    events:
+      - httpApi:
+          path: /sumPositiveItem
+          method: post
+  serialNumberDate:
+    handler: src/functions/serialNumberDate/index.handler
+    events:
+      - httpApi:
+          path: /serialNumberDate
+          method: get  
+  sumAndProductItem:
+    handler: src/functions/sumAndProductItem/index.handler
+    events:
+      - httpApi:
+          path: /sumAndProductItem
+          method: post   
+  sortingObjects:
+    handler: src/functions/sortingObjects/index.handler
+    events:
+      - httpApi:
+          path: /sortingObjects
+          method: post                             
+
