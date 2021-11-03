@@ -12,12 +12,6 @@ provider:
 
 
 functions:
-  hello:
-    handler: src/functions/hello.handler
-    events:
-      - httpApi:
-          path: /
-          method: get
   firstPositiveItem:
     handler: src/functions/firstPositiveItem/index.handler
     events:
